@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Web Programming Project</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./form_validation_modified.js"></script>
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+    $("#signin").submit(function(){
+      alert("On submit worked");
+      $.post("login.php",
+      {
+        email: $("#in_email").val(),
+        password: $("#in_pwd").val()
+      },
+      function(data,status){
+        alert("Data "+data+"Status "+status);
+      });
+    });
+  </script>
+  -->
+	<style>
+		.row {
+			margin-left:0px;
+			margin-top:-1px;
+		}
+		a:active, a:focus {
+			outline:none;
+		}
+		.carousel-inner > .item > img,
+		.carousel-inner > .item > a > img {
+			width: 50%;
+			margin: auto;
+		}
+		small {
+			font-size: 10pt;
+			visibility:hidden;
+			color:red;
+		}
+	</style>
+</head>
+<body style="background-color:#d2eafd">
+
+<div class="container">
+  <!--h2>Dynamic Tabs</h2--> <br/><br/><br/>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home"><b>Home</b></a></li>
+    <li><a data-toggle="tab" href="#menu1"><b>SignIn</b></a></li>
+    <li><a data-toggle="tab" href="#menu2"><b>SignUp</b></a></li>
+  </ul>
+	<div class="row">
+		<div class="col-sm-12" style="background-color:#000033;height:8px"></div><br />
+	</div>
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+		<p>Welcome to our concierge service.Please create an account if you don't have one or login to begin.</p>
+    </div>
+    <!--SIGN-UP -->
+    <div id="menu2" class="tab-pane fade">
+      				<h1 style="text-align:center">SIGN UP:</h1> <br /> <br />
+				<form class="form-horizontal" role="form" onsubmit="return check_valid_all()" action="add_to_db.php" method="post">
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="name">Name:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="name" id="name" placeholder="Enter Full Name" onblur="validate_name()" />
+							<small id="errorText1">This field is required</small>
+							<small style="float:right;" id="_name">Enter a valid name</small><br />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="email">Email:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="email" name="email" placeholder="Enter email" onblur="validate_email()" />
+							<small id="errorText2">This field is required</small>
+							<small style="float:right;" id="mail">Email format incorrect</small><br />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="pwd">Password:</label>
+						<div class="col-sm-8">
+							<input type="password" class="form-control" name="pwd" id="pwd" placeholder="Enter password" onblur="validate_pwd()" />
+							<small id="errorText3">This field is required</small>
+							<small style="float:right;" id="pass">Password Too Short</small><br />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="cpwd">Confirm Password:</label>
+						<div class="col-sm-8">
+							<input type="password" class="form-control" name="cpwd" id="cpwd" placeholder="Enter password" onblur="validate_pwd2()" />
+							<small id="errorText4">This field is required</small>
+							<small style="float:right;" id="cpd">Passwords do not match</small><br />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<br />
+							<button type="submit" class="btn btn-success">Submit</button>
+						</div>
+					</div>
+				</form>
+    </div>
+    <!--SIGN IN-->
+    <div id="menu1" class="tab-pane fade">
+      <h1 style="text-align:center">SIGN IN:</h1> <br /> <br />
+				<form class="form-horizontal" role="form" action="login.php" method="post" >
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="email">Email:</label>
+						<div class="col-sm-8">
+							<input type="email" class="form-control" name="email" placeholder="Enter email" /><br />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="pwd">Password:</label>
+						<div class="col-sm-8">
+							<input type="password" class="form-control" name="pwd" placeholder="Enter password" /><br />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<div class="checkbox">
+								<label><input type="checkbox"> Remember me</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<br />
+							<button type="submit" class="btn btn-success">Submit</button>
+						</div>
+					</div>
+				</form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
