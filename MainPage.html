@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Web Programming Project</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" href="./style_home.css">
+		<link href='https://fonts.googleapis.com/css?family=Gentium+Basic' rel='stylesheet' type='text/css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="./FormValidation.js"></script>
+		<style>
+			.nav-tabs > li.active > a,
+			.nav-tabs > li.active > a:focus {
+			  background-image:url("./black.jpg")
+			}
+			.nav-tabs > a:hover {
+				background-color: black;
+			}
+			#circle {
+				border-radius:2px;
+				width:1525px;
+				height:70px;
+				background-color:white;
+				margin-left:-193px;
+			}
+			.k {
+				margin-left:170px;
+				font-size:30px;
+				color:black;
+			}
+			#webname {
+				color:black;
+				margin-left:70px;
+				margin-top:-50px;
+				font-size:30pt;
+			}
+			#img {
+				margin-left:5px;
+				margin-top:5px;
+			}
+			#m {
+				float:right;
+				width:50px;
+				height:50px;
+				margin-top:-70px;
+				margin-right:-170px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<!--button id="Btn"><span class="glyphicon glyphicon-envelope"><b> About</b></span></button-->
+			<div id="circle">
+				<img src="./chat-icon.jpg" width="50px" height="50px" id="img"/>
+				<p id="webname"> Chat With BMS </p>
+			</div>
+			<div id="m"><button id="Btn"><span class="glyphicon glyphicon-question-sign k"></span></button></div>
+			<div id="title"></div>
+			<div id="myModal" class="modal">
+			  <!-- Modal content -->
+				<div class="modal-content">
+					<span class="close">×</span>
+					<p>
+						<table class="table table-striped">
+							<thead>
+								<th> Name </th>
+								<th> Contact No. </th>
+								<th> Email </th>
+							</thead>
+						 </tbody>
+							<tr>
+								<td>Anjali Unnikrishnan</td>
+								<td> +91 - 7411000251 </td>
+								<td> anj.unnikrishnan2@gmail.com </td>
+							</tr>
+							<tr>
+								<td>Anshuman Narayan</td>
+								<td> +91 - 8861284286 </td>
+								<td> anshu.nryn@gmail.com </td>
+							</tr>
+							<tr>
+								<td>Anurag Unnikrishnan</td>
+								<td> +91 - 7829650341 </td>
+								<td> anurag.unnikrishnan@gmail.com </td>
+							</tr>
+							</tbody>
+						</table>
+					</p>
+			  </div>
+
+			</div>
+			<ul class="nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#menu2"><b class="fnt">SignUp</b></a></li>
+				<li><a data-toggle="tab" href="#menu1"><b class="fnt">SignIn</b></a></li>
+				<li class="adab"><a data-toggle="tab" href="#admin"><b class="fnt">Admin</b></a></li>
+			</ul>
+			<!--ul class="nav nav-tabs pull-right">
+				<li class="adab"><a href="./adminPage.html"><b>Admin</b></a></li>
+				<li class="adab"><a href="./About.html"><b>About</b></a></li>
+			</ul-->
+			<!--div class="row">
+				<div class="col-sm-12" style="background-color:#000033;height:8px"></div><br />
+			</div-->
+			<div class="tab-content">
+				<div id="menu2" class="tab-pane fade in active">
+      				<h1 style="text-align:center;">SIGN UP:</h1> <br />
+					<form class="form-horizontal" role="form"  onsubmit="return check_valid_all()" action="add_to_db.php" method="post">
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="name">Name:</label>
+							<div class="col-sm-8">
+									<input type="text" class="form-control d" name="name" id="name" placeholder="Enter Full Name" onblur="validate_name()" />
+									<small id="errorText1">This field is required</small>
+									<small style="float:right;" id="_name">Enter a valid name</small><br />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="email">Email:</label>
+							<div class="col-sm-8">
+									<input type="email" class="form-control d" id="email" name="email" placeholder="Enter email" onblur="validate_email()" />
+									<small id="errorText2">This field is required</small>
+									<small style="float:right;" id="mail">Email format incorrect</small><br />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="pwd">Password:</label>
+							<div class="col-sm-8">
+								<input type="password" class="form-control d" name="pwd" id="pwd" placeholder="Enter password" onblur="validate_pwd()" />
+								<small id="errorText3">This field is required</small>
+								<small style="float:right;" id="pass">Password Too Short</small><br />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="cpwd">Confirm Password:</label>
+							<div class="col-sm-8">
+								<input type="password" class="form-control d" name="cpwd" id="cpwd" placeholder="Enter password" onblur="validate_pwd2()" />
+								<small id="errorText4">This field is required</small>
+								<small style="float:right;" id="cpd">Passwords do not match</small><br />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="button d">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div id="menu1" class="tab-pane fade">
+					<h1 style="text-align:center">SIGN IN:</h1> <br /> <br />
+					<form class="form-horizontal" role="form" action="login.php" method="post">
+						<div class="form-group">
+							<label class="control-label col-sm-2 d" for="email">Email:</label>
+							<div class="col-sm-8">
+								<input type="email" class="form-control d" id="email" name="email" placeholder="Enter email" /><br />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2 d" for="pwd">Password:</label>
+							<div class="col-sm-8">
+								<input type="password" class="form-control d" id="pwd" name="pwd" placeholder="Enter password" /><br />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<div class="checkbox">
+									<label><input type="checkbox"> Remember me</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="button d">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div id="admin" class="tab-pane fade">
+					<!--ADMIN LOGIN -->
+					<h1 style="text-align:center">ADMIN LOGIN:</h1> <br /> <br />
+					<form class="form-horizontal" role="form" action="admin_login.php" method="post">
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="email">Email:</label>
+							<div class="col-sm-8">
+								<input type="email" class="form-control d" id="email" name="email" placeholder="Enter email" /><br />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="pwd">Password:</label>
+							<div class="col-sm-8">
+								<input type="password" class="form-control d" id="pwd" name="pwd" placeholder="Enter password" /><br />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<div class="checkbox">
+									<label><input type="checkbox"> Remember me</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="button d">Submit</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+			<script>
+			// Get the modal
+			var modal = document.getElementById('myModal');
+			// Get the button that opens the modal
+			var btn = document.getElementById("Btn");
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close")[0];
+			// When the user clicks the button, open the modal
+			btn.onclick = function() {
+				modal.style.display = "block";
+			}
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function() {
+				modal.style.display = "none";
+			}
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+			</script>
+		</div>
+	</body>
+</html>

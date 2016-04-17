@@ -22,6 +22,7 @@ a {
 
 #submitmsg{
 	border-radius:2px;
+	font-weight:bold;
 }
 
 #wrapper, #loginform {
@@ -65,7 +66,9 @@ a {
 #menu { padding:12.5px 25px 12.5px 25px; }
 
 .welcome {
+	border-radius:2px;
 	float:left;
+	font-weight:bold;
 	}
 
 .logout { float:right; }
@@ -75,5 +78,5 @@ a {
 #msg {
   font-weight: normal;
   font: 9pt arial;
-  
+
 }
